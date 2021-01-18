@@ -10,7 +10,7 @@ import hudson.plugins.sonar.model.TriggersConfig
 // Required environment variables
 def sonar_name = "Sonar Auto Setup"
 def sonar_server_url = "http://10.0.0.2:9000"
-def sonar_auth_token = "WindowsAutoToken"
+def sonar_auth_token = "WindowsTokenFinal"
 def sonar_mojo_version = ''
 def sonar_additional_properties = ''
 def sonar_triggers = new TriggersConfig()
