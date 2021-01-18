@@ -59,7 +59,7 @@ Thread.start {
     def desc_SonarRunnerInst = instance.getDescriptor("hudson.plugins.sonar.SonarRunnerInstallation")
     def sonarRunnerInstaller = new SonarRunnerInstaller(sonar_runner_version)
     def installSourceProperty = new InstallSourceProperty([sonarRunnerInstaller])
-    def sonarRunner_inst = new SonarRunnerInstallation("New Setting SonarRunner " + sonar_runner_version, "", [installSourceProperty])
+    def sonarRunner_inst = new SonarRunnerInstallation("Test new Sonar script", "", [installSourceProperty])
 
     // Only add our Sonar Runner if it does not exist - do not overwrite existing config
     def sonar_runner_installations = desc_SonarRunnerInst.getInstallations()
@@ -68,7 +68,7 @@ Thread.start {
         installation = (SonarRunnerInstallation) it
         if (sonarRunner_inst.getName() == installation.getName()) {
             sonar_runner_inst_exists = true
-            println("Found existing installation: " + installation.getName())
+            //println("Found existing installation: " + installation.getName())
         }
     }
     if (!sonar_runner_inst_exists) {
