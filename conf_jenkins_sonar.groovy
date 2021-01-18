@@ -45,7 +45,7 @@ Thread.start {
         installation = (SonarInstallation) it
         if (sonar_inst.getName() == installation.getName()) {
             sonar_inst_exists = true
-            println("Found existing installation: " + installation.getName())
+            //println("Found existing installation: " + installation.getName())
         }
     }
     if (!sonar_inst_exists) {
