@@ -8,7 +8,7 @@ import hudson.plugins.sonar.SonarGlobalConfiguration
 import hudson.plugins.sonar.model.TriggersConfig
 
 // Required environment variables
-def sonar_name = "Sonar Auto Setup"
+def sonar_name = "SonarChallengeServer"
 def sonar_server_url = "http://10.0.0.2:9000"
 def sonar_auth_token = "WindowsAutoToken"
 def sonar_mojo_version = ''
@@ -59,7 +59,7 @@ Thread.start {
     def desc_SonarRunnerInst = instance.getDescriptor("hudson.plugins.sonar.SonarRunnerInstallation")
     def sonarRunnerInstaller = new SonarRunnerInstaller(sonar_runner_version)
     def installSourceProperty = new InstallSourceProperty([sonarRunnerInstaller])
-    def sonarRunner_inst = new SonarRunnerInstallation("Test new Sonar script", "", [installSourceProperty])
+    def sonarRunner_inst = new SonarRunnerInstallation("SonarChallengeScanner", "", [installSourceProperty])
 
     // Only add our Sonar Runner if it does not exist - do not overwrite existing config
     def sonar_runner_installations = desc_SonarRunnerInst.getInstallations()
