@@ -3,7 +3,7 @@
 {
 	"name": "Docker from Docker",
 	"dockerFile": "Dockerfile",
-	"runArgs": ["--init"],
+	"runArgs": ["--net netnet","--init"],
 	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
 	"overrideCommand": false,
 	
