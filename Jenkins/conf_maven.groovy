@@ -18,7 +18,7 @@ maven3Install = mavenPlugin.installations.find {
 // If no match was found, add an installation.
 if(maven3Install == null) {
    println("No Maven install found. Adding...")
-   newMavenInstall = new hudson.tasks.Maven.MavenInstallation('maven3', null, [new hudson.tools.InstallSourceProperty([new hudson.tasks.Maven.MavenInstaller(mavenVersion)])])
+   newMavenInstall = new hudson.tasks.Maven.MavenInstallation('Maven3', null, [new hudson.tools.InstallSourceProperty([new hudson.tasks.Maven.MavenInstaller(mavenVersion)])])
    mavenPlugin.installations += newMavenInstall
    mavenPlugin.save()
    println("Maven install added.")
