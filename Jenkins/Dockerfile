@@ -35,7 +35,6 @@ COPY scanner_conf.sh /usr/share/jenkins
 COPY webhook_sonar.sh /usr/share/jenkins
 COPY multibranch_model.xml /usr/share/jenkins
 COPY create_pipeline.sh /usr/share/jenkins
-COPY Jenkinsfile /usr/share/jenkins/JenkinsfileTemplate
 
 # Set up user
 COPY setup_jenkins.groovy /usr/share/jenkins/ref/init.groovy.d/
