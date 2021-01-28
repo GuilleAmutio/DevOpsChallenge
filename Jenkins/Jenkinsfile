@@ -7,11 +7,11 @@ pipeline {
 
   environment {
     // Angular directory
-    angularDir = '/var/jenkins_home/workspace/angular'
+    angularDir = 'angular'
     // Src Directory
-    srcDir = '/src'
+    srcDir = 'src'
     // Java directory
-    javaDir = '/var/jenkins_home/workspace/java/mtsj'
+    javaDir = 'java/mtsj'
 
     // Maven global settings configuration ID
     globalSettingsId = 'MavenSettings'
@@ -25,6 +25,7 @@ pipeline {
     sonarEnv = "SonarQube"
   }
 
+  //Quizá falte añadir los stages de dependecy y demás en Java. CONFIGURAR MAS TARDE
   stages {
       stage('Iniciando') {
           steps {
@@ -56,11 +57,39 @@ pipeline {
             }
         }
       }
+
+      stage ('Install dependencies') {
+          steps {
+              dir(javaDir) {
+                  withMaven(maven: mavenInstallation) {
+                      sh "mvn clean install -Dmaven.test.skip=true"
+                  }
+              }
+          }
+      }
+
+      stage ('Unit Tests') {
+          steps {
+              dir(javaDir) {
+                  withMaven(maven: mavenInstallation) {
+                      sh "mvn clean test"
+                  }
+              }
+          }
+      }
+
+      stage ('Dependeny Checker') {
+          steps {
+              dependencyCheck additionalArguments: '--project "mtsj" --scan java/mtsj --format XML', odcInstallation: 'dependency-check'
+              dependencyCheckPublisher pattern: ''
+          }
+      }
+
       stage('SonarQube code analysis - Java') {
         steps {
             script {
                 dir(javaDir) {
-                    withMaven(globalMavenSettingsConfig: globalSettingsId, maven: mavenInstallation) {
+                    withMaven(maven: mavenInstallation) {
                         withSonarQubeEnv(sonarEnv) {
                             sh "mvn sonar:sonar -Dsonar.dependencyCheck.reportPath=../../dependency-check-report.xml"
                         }
@@ -77,7 +106,7 @@ pipeline {
       }
       stage('Publicando') {
           steps {
-              echo 'Publicación'
+              sh "docker-compose -f docker-compose.yml up -d"
           }
       }
   }
