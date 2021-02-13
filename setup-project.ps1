@@ -108,6 +108,6 @@ if($tries -gt $limitTries+1) {
 Write-Host "Configuring Jenkins and SonarQube..."
 docker exec -ti challenge_jenkins /bin/bash -c "cd /usr/share/jenkins; ./token_credentials.sh; ./jenkins_conf_installations.sh; ./webhook_sonar.sh; ./create_pipeline.sh"
 
-
+clear
 Write-Host "Jenkins and SonarQube up and configured."
 Write-Host "Open your local git repository folder in VSCode and click on 'Reopen in a container' " -ForegroundColor Yellow -NoNewLine
