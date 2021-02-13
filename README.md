@@ -9,7 +9,7 @@ The goal of this challenge consists of two parts.
 
 By default, Jenkins and SonarQube will run on the ports 8080 and 9000, respecivtively. If you want to modify this ports check the section below "How to customize".
 If you´re going to run it on the ports by default, just download into the folder where your local repository is and run the script with the repository path, like:
-
+![path](https://user-images.githubusercontent.com/56632305/107864615-3760bd00-6e5e-11eb-9b93-431493a90661.PNG)
 ```.\setup-project.ps1 .\my-local-repository```
 
 
