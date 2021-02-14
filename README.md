@@ -26,13 +26,13 @@ Sometimes you won´t have available the ports 8080 and 9000, so you might want t
 
   ![Variables](https://user-images.githubusercontent.com/56632305/107864842-ce2e7900-6e60-11eb-9f91-c0f61ff88d02.PNG)
 
-2. On second place, you will have to remove the line that goes
+2. On second place, you will have to remove the line that goes:
 
-    ```wget https://raw.githubusercontent.com/GuilleAmutio/DevOpsChallenge/main/post-commit -O ${PWD}\${repoPath}\.git\hooks\post-commit``` .
+    ```wget https://raw.githubusercontent.com/GuilleAmutio/DevOpsChallenge/main/post-commit -O ${PWD}\${repoPath}\.git\hooks\post-commit```
 
     You will have to download the Post commit file to the desired Jenkins address and add it, manually, to the my-local-repo/.git/hooks/
 
-3. Lastly, as told before, you will have to build a new Jenkins image and modify the line that follows like with the new image built:
+3. Lastly, as told before, you will have to build a new Jenkins image and modify the line that follows like this, with the new image built:
 
     ```docker run -d --name challenge_jenkins -v ${PWD}\${repoPath}:/var/jenkins_home/my_repo -v ${PWD}/volumes/jenkins_home:/var/jenkins_home -v   /var/run/docker.sock:/var/run/docker.sock --net netnet --ip ${ipJenkins} -p ${portJenkins}:${portJenkins} guilleamutio/challenge.devops.images:jenkins_challenge```
 
@@ -48,4 +48,8 @@ Sometimes you won´t have available the ports 8080 and 9000, so you might want t
 
     3.5. ```Webhook_sonar.sh```:  Need to modify the Jenkins and SonarQube container addresses. Configure the webhook of SonarQube listening to the Jenkins address.
 
+### FAQ
 
+1. **Question** User and password by default?
+    **Answer** For both, Jenkins and SonarQube, the default user is ```admin``` and the password is ```admin```
+    
