@@ -28,7 +28,7 @@ Sometimes you won´t have available the ports 8080 and 9000, so you might want t
 
 2. On second place, you will have to remove the line that goes
 
-```wget https://raw.githubusercontent.com/GuilleAmutio/DevOpsChallenge/main/post-commit -O ${PWD}\${repoPath}\.git\hooks\post-commit``` .
+  ```wget https://raw.githubusercontent.com/GuilleAmutio/DevOpsChallenge/main/post-commit -O ${PWD}\${repoPath}\.git\hooks\post-commit``` .
 
   You will have to download the Post commit file to the desired Jenkins address and add it, manually, to the my-local-repo/.git/hooks/
 
@@ -39,9 +39,13 @@ Sometimes you won´t have available the ports 8080 and 9000, so you might want t
   But before you build that image you will need to modify the next files on the Jenkins folder:
 
   3.1. ```Conf_jenkins_sonar.groovy```: Need to modify the SonarQube container address.This file configure the SonarQube scanner tool on Jenkins.
+  
   3.2. ```Create_pipeline.sh```: Need to modify the Jenkins container address. Create the default pipeline configured.
+  
   3.3. ```Jenkins_conf_installations.sh```: Need to modify the Jenkins container address. Invoke ```Conf_jenkins_sonar.groovy``` and the Maven configuration file.
+  
   3.4. ```Token_credentials.sh```: Need to modify the Jenkins and SonarQube container addresses. Create token on SonarQube and add it as a credential to Jenkins.
+  
   3.5. ```Webhook_sonar.sh```:  Need to modify the Jenkins and SonarQube container addresses. Configure the webhook of SonarQube listening to the Jenkins address.
 
 
