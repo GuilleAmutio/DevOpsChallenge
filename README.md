@@ -19,7 +19,7 @@ If you´re going to run it on the ports by default, just download into the folde
 
 The pipeline that the script created will attempt to use the Jenkinsfile located on /my-local-repo/Jenkins/challenge/Jenkinsfile.
 
-You can try these scripts with [Jump the queueu](https://github.com/GuilleAmutio/JumpTheQueue), a repository done specifically to work with this script. It contains the Dockerfiles to deploy the application to Docker once the pipeline finishes, it will run a MySQL, Nginx and a Java containers. Just download the repository and add the scripts.
+You can try these scripts with [Jump the queue](https://github.com/GuilleAmutio/JumpTheQueue), a repository done specifically to work with this script. It contains the Dockerfiles to deploy the application to Docker once the pipeline finishes, it will run a MySQL, Nginx and a Java containers. Just download the repository and add the scripts.
 
 ### How to customize
 Sometimes you won´t have available the ports 8080 and 9000, so you might want to change these ports. Change this ports is simple, but you will have to build you own Jenkins image, because the ```Setup-project.ps1``` script use the image for ports 8080 and 9000, you can located it [here](https://hub.docker.com/layers/137473383/guilleamutio/challenge.devops.images/jenkins_challenge/images/sha256-bb39f30106899b0f9841c18012051335f7db267144c2f166322962a0577b7814?context=explore). So, if you want to modify your addresses and ports, just download the Jenkins folder on this repository and follow the guide.
@@ -53,5 +53,6 @@ Sometimes you won´t have available the ports 8080 and 9000, so you might want t
 ### FAQ
 
 1. **Question** User and password by default?
+
     **Answer** For both, Jenkins and SonarQube, the default user is ```admin``` and the password is ```admin```
     
