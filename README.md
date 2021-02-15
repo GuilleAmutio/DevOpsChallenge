@@ -9,7 +9,7 @@ The goal of this challenge consists of two parts.
 1. The ```Install-dev-env.ps1``` script will first check if Chocolatey is installed, if it´s not installed, it will install it and continue the execution of the script. Will check if the rest of the tools are installed and, if not, will install it. It will also check that the Visual Studio Code has the Remote-containers plugin.
 2. The ```Setup-project.ps1``` will first check if the path called is a valid git repository. It will also start Docker and start creating the SonarQube and Jenkins container, once these container can recieve petitions, it will configure the connection between these two. For the Visual Studio Code container, it will download the folder .devcontainer and the post-commit githook of this repository. The post-commit will notify Jenkins when a commit is done to the deploy branch and will trigger a pipeline.
 
-  Once this script finishes, you will have two containers, Jenkins and SonarQube, running. For the Visual Studio Code container, you will only have to open the repository folder and the VSCode will ask you to reopen that folder in a container, thats all.
+    Once this script finishes, you will have two containers, Jenkins and SonarQube, running. For the Visual Studio Code container, you will only have to open the repository folder and the VSCode will ask you to reopen that folder in a container, thats all.
 
 ### How to use
 By default, Jenkins and SonarQube will run on the ports 8080 and 9000, respecivtively. If you want to modify this ports check the section below "How to customize".
