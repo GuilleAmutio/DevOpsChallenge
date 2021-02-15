@@ -32,7 +32,7 @@ Sometimes you won´t have available the ports 8080 and 9000, so you might want t
 
     ```wget https://raw.githubusercontent.com/GuilleAmutio/DevOpsChallenge/main/post-commit -O ${PWD}\${repoPath}\.git\hooks\post-commit```
 
-    You will have to download the Post commit file to the desired Jenkins address and add it, manually, to the my-local-repo/.git/hooks/
+    You will have to download the Post commit file, modify to point to the desired Jenkins address and add it, manually, to the my-local-repo/.git/hooks/
 
 3. Lastly, as told before, you will have to build a new Jenkins image and modify the line that follows like this, with the new image built:
 
